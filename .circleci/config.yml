@@ -13,12 +13,18 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Build container image
+          name: Login to hub.docker.com
+          command: echo ${DOCKER_ACCESS_TOKEN} | docker login -u ${DOCKER_USERNAME} --password-stdin
+      - run:
+          name: Build and push container image
           command: |
+            HUB_REPO=cjfinnell/kafka-wrapper
+            HUB_VERSION=<< parameters.scala_version >>-<< parameters.kafka_version >>
             docker build \
               --build-arg KAFKA_VERSION=<< parameters.kafka_version >> \
               --build-arg SCALA_VERSION=<< parameters.scala_version >> \
-              -t app .
+              -t  $HUB_REPO:$HUB_VERSION . && \
+            docker push $HUB_REPO:$HUB_VERSION
 
 workflows:
   version: 2
