@@ -13,7 +13,8 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          command: echo "scala version << parameters.scala_version >>, kafka version << parameters.kafka_version >>"
+          name: Build container image
+          command: docker build -t app .
 
 workflows:
   version: 2
