@@ -1,0 +1,24 @@
+version: 2.1
+
+jobs:
+  build-and-push:
+    - image: docker:18.06.3-ce-git
+  parameters:
+    kafka_version:
+      type: string
+    scala_version:
+      type: string
+  steps:
+    - checkout
+    - setup_remote_docker
+    - run:
+        command: echo "scala version << parameters.scala_version >>, kafka version << parameters.kafka_version >>"
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build-and-push:
+          parameters:
+            kafka_version: [2.7.0, 2.6.1]
+            scala_version: [2.13, 2.12]
