@@ -1,7 +1,7 @@
 FROM alpine:3.13
 
-ARG KAFKA_VERSION=2.7.0
-ARG SCALA_VERSION=2.13
+ARG KAFKA_VERSION
+ARG SCALA_VERSION
 
 RUN mkdir /kafka && cd /kafka && \
 	apk add bash wget openjdk8 && \
