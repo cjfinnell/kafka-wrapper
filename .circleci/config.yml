@@ -19,6 +19,7 @@ workflows:
   workflow:
     jobs:
       - build-and-push:
-          parameters:
-            kafka_version: [2.7.0, 2.6.1]
-            scala_version: [2.13, 2.12]
+          matrix:
+            parameters:
+              kafka_version: [2.7.0, 2.6.1]
+              scala_version: [2.13, 2.12]
