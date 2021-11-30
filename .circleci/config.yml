@@ -47,5 +47,5 @@ workflows:
       - build-and-push:
           matrix:
             parameters:
-              kafka_version: ["2.7.0", "2.6.1", "2.6.0", "2.5.1", "2.5.0"]
+              kafka_version: ["3.0.0", "2.8.0", "2.7.2", "2.7.1", "2.7.0", "2.6.1", "2.6.0", "2.5.1", "2.5.0"]
               scala_version: ["2.13", "2.12"]
