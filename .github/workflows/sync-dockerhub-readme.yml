@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  block-fixup:
+  set-dockerhub-description:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
