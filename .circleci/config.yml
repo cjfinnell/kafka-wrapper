@@ -8,7 +8,7 @@ jobs:
       scala_version:
         type: string
     docker:
-      - image: docker:18.06.3-ce-git
+      - image: docker:25-git
     steps:
       - checkout
       - setup_remote_docker
